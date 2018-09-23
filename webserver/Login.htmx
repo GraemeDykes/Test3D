@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style type='text/css' title='currentStyle'>
+		@import './css/kssstaff.css';
+		@import './css/jquery.dataTables.css';
+	</style>
+	<script type='text/javascript' language='javascript' src='./js/jquery-2.0.3.min.js'></script>
+	<script type='text/javascript' language='javascript' src='./js/jquery.dataTables.min.js'></script>
+	<script type='text/javascript' charset='utf-8'>
+		$(document).ready(function() {
+			$('#example').dataTable();
+		} );
+		</script>
+		<style>
+			table
+			{
+				border-collapse:collapse;
+			}
+			table,th,td
+			{
+				border: 1px solid black;
+				padding:5px;
+			}
+		</style>
+</head>
+<body id='dt_example' style='font:12px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;'>
+	<div style='width:1200px;margin: 30px auto'>
+
+		<div style='margin-bottom:15px;'>
+			
+			<img src="/images/logo-nowbridge-users.png" alt="nowbridge.co.nz" title="nowbridge.co.nz" style="width:165px;height:42px"/>
+
+		</div>
+
+		<div>
+			<div style='float:left;background-color:white;width:100px;padding:15px;'>
+				<div style='margin-bottom:15px;'>
+					<!-- <a href='Home.ashx'>Home</a> -->
+				</div>
+				<div>
+					<!-- <a href='Enquiries.ashx'>Enquiries</a> -->
+				</div>
+			</div>
+
+			<div style='float:left;background-color:white;width:1040px;padding:15px;'>
+				<div style='margin-top:20px;font-size:18px;font-weight:bold;color:#888888;'>
+					Please Log In
+				</div>
+				<div style='margin-top:20px;'>
+
+					<form method='post' action='' autocomplete='OFF' >
+
+						<div style='width:300px;'>
+							<div style='padding:10px;width:300px;color:red;'>
+								{{.ErrorMessage}}
+							</div>
+							<div style='padding:10px;width:300px;'>
+
+								<table >
+									<tr>
+										<td width='90px' style='text-align:right;font-family:verdana;font-size:10pt;'>
+					    					User Name:
+					    				</td>
+					    				<td width='200px' style=''>
+					   						<input name='Email' type='text' maxlength=40 style='width:180px;' value='{{.EmailAddress}}'></input>
+										</td>
+										</tr>
+										<tr>
+					    				<td width='90px' style='text-align:right;font-family:verdana;font-size:10pt;'>
+					    					Password:
+					    				</td>
+					    				<td width='200px' style=''>
+					    					<input name='Password' type='password' maxlength=80 style='width:180px;' value=''></input>
+					    				</td>
+										</tr>
+								</table>
+								</div>
+								<div style='text-align:right;padding:10px;'>
+									<input name='LogonButton' type='submit' value='Log In' style='margin-right:6px;margin-top:6px;border: thin outset;font-weight:500;font-size:10pt;color: #333333;font-family:Verdana;background-color:#e3e3e3;'></input>
+								</div>
+							</div>
+
+
+					</form>
+	
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+{
+	"CentralDBServerAddress": "127.0.0.1",
+	"CentralDBServerPort": 9091,
+	"HttpListenAddressPort": ":9092"
+}

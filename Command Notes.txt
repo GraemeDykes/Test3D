@@ -1,0 +1,18 @@
+$env:GOOS = "js"
+
+$Env:GOARCH="wasm"
+
+$Env:GOARCH="wasm"
+
+$Env:GOARCH="wasm"
+
+Get-ChildItem Env:DriverData
+
+https://www.itprotoday.com/management-mobility/powershell-one-liner-creating-and-modifying-environment-variable
+
+https://docs.google.com/document/d/131vjr4DH6JFnb-blm_uRdaC0_Nv3OUwjEY5qVCxCup4/preview
+
+go build -o main.wasm
+
+go build -o main.wasm hello.go
+

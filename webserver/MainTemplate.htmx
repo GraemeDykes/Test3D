@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+	<style type='text/css' title='currentStyle'>
+		@import '/css/kssstaff.css';
+		@import '/css/jquery.dataTables.css';
+	</style>
+
+	<link rel='stylesheet' href='/css/jquery-ui.css' />
+
+	<script type='text/javascript' language='javascript' src='/js/jquery-2.0.3.min.js'></script>
+	<script type='text/javascript' language='javascript' src='/js/jquery.dataTables.min.js'></script>
+	<script type='text/javascript' language='javascript' src='/js/jquery-ui.min.js'></script>
+
+	<style>
+		table
+		{
+			border-collapse:collapse;
+		}
+		table,th,td
+		{
+			border: 1px solid black;
+			padding:5px;
+		}
+	</style>
+
+</head>
+
+<body id='dt_example' style='font:12px \"Lucida Grande\", Verdana, Arial, Helvetica, sans-serif;'>
+
+	<div style='width:1200px;margin: 30px auto'>
+
+		<div style='margin-bottom:15px;'>
+			
+			<div style='float:right'>
+				User: {{.UserName}}
+				<a style="margin-left:20px;" href="/login/">Log Out</a>
+			</div>
+
+			<img src="/images/logo-nowbridge-users.png" alt="nowbridge.co.nz" title="nowbridge.co.nz" style="width:165px;height:42px"/>
+
+		</div>
+
+		<div>
+
+			<div style='float:left;background-color:white;width:200px;padding:15px;'>
+				<div style='margin-bottom:15px;'>
+					<a href='/'>Home</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/clientTaskServers/'>Client Task Servers</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/emailTemplates/'>Email Templates</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/groups/'>Groups</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/netInfoServers/'>Net Info Servers</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/signups/'>Sign-ups</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/users/'>Users</a>
+				</div>
+				<div style='margin-bottom:15px;'>
+					<a href='/userEvents/'>User Events</a>
+				</div>
+			</div>
+
+			<div style='float:left;background-color:white;width:940px;padding:15px;'>
+				{{.PageHtml}}
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+			
+			
