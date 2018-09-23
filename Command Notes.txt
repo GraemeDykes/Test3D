@@ -2,10 +2,6 @@ $env:GOOS = "js"
 
 $Env:GOARCH="wasm"
 
-$Env:GOARCH="wasm"
-
-$Env:GOARCH="wasm"
-
 Get-ChildItem Env:DriverData
 
 https://www.itprotoday.com/management-mobility/powershell-one-liner-creating-and-modifying-environment-variable
