@@ -295,7 +295,8 @@ func configFile() string {
 		return "conf.json"
 	}
 	// Assume linux else.
-	return "/etc/nowbridge/dynWebStaff/conf.json"
+	// return "/etc/nowbridge/dynWebStaff/conf.json"
+	return "conf.json"
 }
 
 var configuration Configuration
@@ -312,6 +313,7 @@ func loadConfiguration() {
 
 	if err != nil {
 		// nbLog.Log.Println("Error in loadConfiguration -", err)
+		fmt.Println("Error in loadConfiguration -", err)
 		return
 	}
 
