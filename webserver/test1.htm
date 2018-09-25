@@ -6,15 +6,34 @@
 		<style>
 			body { margin: 0; }
 			canvas { width: 100%; height: 100% }
+			#scene3d {
+				background-color: #000;
+				width: 600px;
+				height: 300px;
+				border: 1px solid black;
+				margin: 10px;
+				padding: 0px;
+				position: static; /* fixed or static */
+				top: 10px;
+				left: 10px;
+			}
 		</style>
 	</head>
 	<body>
 		<script src="js/three.js"></script>
 		<script src="js/OrbitControls.js"></script>
 
+		<div id="scene3d"></div>
+
+		
 		<script>
+
+var scene3d = document.getElementById("scene3d");
+var scene3dW = scene3d.offsetWidth;
+var scene3dH = scene3d.offsetHeight;
+		 
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 75, scene3dW / scene3dW, 0.1, 1000 );
 
 var playerDirection = 0; // angles 0 - 2pi
 var dVector;
@@ -30,8 +49,11 @@ var playerBackwardsSpeed = playerSpeed * 0.4;
 
 
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+// renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( scene3dW, scene3dH );
+
+// document.body.appendChild( renderer.domElement );
+scene3d.appendChild(renderer.domElement);
 
 var geometry = new THREE.BoxGeometry( 1, 0.1, 1 );
 
