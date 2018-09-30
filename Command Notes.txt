@@ -1,4 +1,9 @@
+
 $env:GOOS = "js"
+
+$Env:GOARCH="wasm"
+
+$Env:GOARCH="wasm"
 
 $Env:GOARCH="wasm"
 
