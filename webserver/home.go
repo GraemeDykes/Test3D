@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"regexp"
 	"strconv"
 	"time"
 
@@ -83,8 +84,11 @@ func main() {
 	// http.HandleFunc("/", defaultHandler)
 
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("."))))
+	http.HandleFunc("/", myFileServer)
 
 	http.HandleFunc("/ws", handlerWs)
+
+	http.HandleFunc("/wasm", handlerWasm)
 
 	// http.HandleFunc("/login/favicon.ico", loginHandler_favicon)
 
@@ -116,6 +120,18 @@ func main() {
 
 	http.ListenAndServe(configuration.HttpListenAddressPort, nil)
 
+}
+
+// var d = http.Dir(dir)
+var fileserver = http.FileServer(http.Dir("."))
+var wasmFile = regexp.MustCompile("\\.wasm")
+
+func myFileServer(w http.ResponseWriter, r *http.Request) {
+	ruri := r.RequestURI
+	if wasmFile.MatchString(ruri) {
+		w.Header().Set("Content-Type", "application/wasm")
+	}
+	fileserver.ServeHTTP(w, r)
 }
 
 var (
@@ -209,6 +225,24 @@ func writer(ws *websocket.Conn, lastMod time.Time) {
 			}
 		}
 	}
+}
+
+func handlerWasm(w http.ResponseWriter, r *http.Request) {
+	ws, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		if _, ok := err.(websocket.HandshakeError); !ok {
+			fmt.Println(err)
+		}
+		return
+	}
+
+	var lastMod time.Time
+	if n, err := strconv.ParseInt(r.FormValue("lastMod"), 16, 64); err == nil {
+		lastMod = time.Unix(0, n)
+	}
+
+	go writer(ws, lastMod)
+	reader(ws)
 }
 
 func handlerWs(w http.ResponseWriter, r *http.Request) {
