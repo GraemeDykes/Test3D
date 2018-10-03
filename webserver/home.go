@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"mime"
 	"regexp"
 	"strconv"
 	"time"
@@ -77,6 +78,8 @@ func main() {
 
 	// nbLog.Log.Println("Starting dynWebStaff")
 
+	mime.AddExtensionType(".wasm", "application/wasm")
+
 	loadConfiguration()
 	// messageQueue.Init(configuration.CentralDBServerAddress, strconv.Itoa(configuration.CentralDBServerPort))
 
@@ -84,11 +87,11 @@ func main() {
 	// http.HandleFunc("/", defaultHandler)
 
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("."))))
-	http.HandleFunc("/", myFileServer)
+	//http.HandleFunc("/", myFileServer)
 
 	http.HandleFunc("/ws", handlerWs)
 
-	http.HandleFunc("/wasm", handlerWasm)
+	http.HandleFunc("/wasm/", myFileServer)
 
 	// http.HandleFunc("/login/favicon.ico", loginHandler_favicon)
 
@@ -123,15 +126,28 @@ func main() {
 }
 
 // var d = http.Dir(dir)
-var fileserver = http.FileServer(http.Dir("."))
+//var fileserver = http.FileServer(http.Dir(".\\wasm\\"))
+var fileserver = http.FileServer(http.Dir("wasm"))
 var wasmFile = regexp.MustCompile("\\.wasm")
 
 func myFileServer(w http.ResponseWriter, r *http.Request) {
 	ruri := r.RequestURI
-	if wasmFile.MatchString(ruri) {
-		w.Header().Set("Content-Type", "application/wasm")
-	}
-	fileserver.ServeHTTP(w, r)
+
+	fmt.Println("wasm requested")
+
+	fmt.Println("ruri - ", ruri)
+
+	//	if wasmFile.MatchString(ruri) {
+
+	fmt.Println("serve wasm")
+
+	w.Header().Set("Content-Type", "application/wasm")
+
+	http.ServeFile(w, r, "wasm/main.wasm")
+
+	fmt.Println("wasm served B")
+	//	}
+	//	fileserver.ServeHTTP(w, r)
 }
 
 var (

@@ -3,3 +3,5 @@
 debug
 *.wasm
 
+webserver/webserver
+deploy/ws/main.wasm
