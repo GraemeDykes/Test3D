@@ -1,0 +1,9 @@
+[Unit]
+Description=Nowbridge DynWebDBServer
+
+[Service]
+ExecStart=/home/nowbridge/dynWebDBServer/dynWebDBServer
+WorkingDirectory=/home/nowbridge/dynWebDBServer
+
+[Install]
+WantedBy=multi-user.target
