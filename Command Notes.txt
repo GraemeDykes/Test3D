@@ -17,3 +17,20 @@ go build -o main.wasm
 
 go build -o main.wasm hello.go
 
+
+sudo systemctl restart test3d
+
+
+REM commands
+REM sudo service nowbridge restart (stop start)
+REM tail -f /var/log/nowbridge.log
+REM free -m
+REM ./cpu_usage (on Zare)
+
+REM Example of retrieving a file.
+REM "C:\Program Files (x86)\PuTTY\pscp" -pw walRas32 nb1@185.38.150.32:/var/log/nowbridge.log C:\aaa
+
+
+REM "c:\Program Files (x86)\PuTTY\pscp" -pw Password12 nb1@212.47.228.229:/var/log/nowbridge.log sw.log
+"c:\Program Files (x86)\PuTTY\pscp" -pw isc6isc graeme@104.236.150.8:/var/log/nowbridge.log do.log
+

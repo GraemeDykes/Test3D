@@ -41,7 +41,7 @@ $Env:GOOS = $prevGOOS
 $Env:GOARCH = $prevGOARCH
 
 Write-Host "Copy wasm to deploy"
-copy main.wasm ../deploy/ws/
+copy main.wasm ../deploy/wasm/
 
 cd ../build
 

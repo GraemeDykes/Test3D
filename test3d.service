@@ -1,0 +1,9 @@
+[Unit]
+Description=Graeme Dykes Test3D
+
+[Service]
+ExecStart=/home/neuro/test3d
+WorkingDirectory=/home/neuro/test3d
+
+[Install]
+WantedBy=multi-user.target
