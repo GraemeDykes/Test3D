@@ -1,0 +1,74 @@
+
+
+>> Build Files
+
+
+- Restart-Process.ps1
+
+Called from other scripts to find and restart a windows process.
+
+
+- deploy.ps1
+
+Copies files to Digital Ocean server, 178.128.1.11.
+main.wasm
+test1.htm
+wasm_exec_3.html
+
+
+- build.ps1
+
+Build webserver, Windows.
+Build main.wasm.
+
+
+- build2.ps1
+
+Build webserver, Windows.
+Deploy webserver, Windows.
+Build main.wasm.
+Deploy wasm.
+
+
+-buildCopyHtml.ps1
+
+Copy wasm_exec_3.html to deploy folder.
+
+
+
+>> Windows Folders
+
+
+- deploy
+
+Build results are copied here.
+Windows server is run from here.
+Files are copied from here to Digital Ocean Server.
+
+
+- build
+
+PowerShell scripts for building and deploying.
+
+
+- webserver
+
+Source files for project.
+
+
+- wasm
+
+Source files for wasm.
+
+
+>> Editing
+
+- Visual Studio
+Browse to folder "webserver".
+Open html files.
+
+
+>> Files
+
+- wasm_exec_3.html.
+Currently only html file. Base for all application.

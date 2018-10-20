@@ -30,10 +30,16 @@ func messageReceived(i []js.Value) {
 	alert.Invoke("Message received.")
 }
 
+func executeUserCommand(i []js.Value) {
+	alert := js.Global().Get("alert")
+	alert.Invoke("executeUserCommand - " + i[0].String())
+}
+
 func registerCallbacks() {
 	js.Global().Set("add", js.NewCallback(add))
 	js.Global().Set("subtract", js.NewCallback(subtract))
 	js.Global().Set("messageReceived", js.NewCallback(messageReceived))
+	js.Global().Set("executeUserCommand", js.NewCallback(executeUserCommand))
 }
 
 func main() {
